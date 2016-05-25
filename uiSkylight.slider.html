@@ -1,0 +1,119 @@
+
+
+<label class="uiSlider">
+<span class="curSlide"> Home </span>
+<span> Work </span>
+<span> Party </span>
+<span> Downtown </span>
+<span> Friend </span>
+<span> Family </span>
+
+<i class="uiToggle-slide"></i><i class="uiToggle-bg"><i class="uiToggle-ball"></i></i>
+</label>
+
+<style>
+	/* uiSlider Android-style radio selector */
+body{font-family: Verdana}
+
+.uiSlider {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    margin: 15px 8px;
+    
+    position: absolute;
+    
+}
+
+.uiSlider span {
+    display: block;
+    padding-left: 30px;
+    padding-right: 15px;
+    height: 30px;
+    color: #939393;
+    line-height: 30px;
+    transition-delay: .1s;
+     z-index: 999;
+}
+
+.uiSlider span.curSlide {
+   color:   #4285F5;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    transition: .1s;
+
+}
+
+
+
+.uiToggle-slide {
+    display: block;
+    width: 20px;
+    height: 99%;
+    background: #a2c2fa;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    transition: .5s;
+    z-index: -1;
+    margin-right: 20px;
+}
+
+.uiToggle-bg {
+    height: 28px;
+    width: 100%;
+    position: absolute;
+    border-radius: 15px;
+    _border: 2px solid #a2c2fa;
+    _background: #a2c2fa;
+    transition: .5s;
+    
+    transition-delay: .1s;
+    z-index: -1;
+    left:0;
+    top: 0;
+}
+.uiToggle-ball{
+    height: 28px;
+    background: #4285F5;
+    width: 28px;
+    
+    position: absolute;
+  
+    left: -4px;
+    border-radius: 50%; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+</style>
+
+
+<script>
+
+document.querySelector(".uiSlider").addEventListener('mouseover', function(e){
+	var index =	Array.prototype.indexOf.call(this.querySelectorAll("span"), e.target);
+  
+  document.querySelector(".uiToggle-bg").style.top = Math.max(0,index * 30) + "px"  
+},1)
+
+
+document.querySelector(".uiSlider").addEventListener('mouseleave', function(e){
+	var index =	Array.prototype.indexOf.call(this.querySelectorAll("span"), document.querySelector(".curSlide"));
+  
+  document.querySelector(".uiToggle-bg").style.top = Math.max(0,index * 30) + "px"  
+},1)
+
+
+
+document.querySelector(".uiSlider").addEventListener('click', function(e){
+
+	var index =	Array.prototype.indexOf.call(this.querySelectorAll("span"), e.target);
+	if (index==-1) return;
+  
+	if (document.querySelector(".curSlide") ) document.querySelector(".curSlide") .className = "";
+  e.target.className = "curSlide";
+  
+	//alert(index)
+  
+  document.querySelector(".uiToggle-bg").style.top = index * 30 + "px"  
+},1)
+</script>

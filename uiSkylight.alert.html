@@ -1,0 +1,122 @@
+<h1>SimpleAlerts.jQuery.js Demo</h1>
+
+
+<pre id="demo">
+Minimalist Bootstrap-themed jQuery alerts,  easy to configure style.
+Include the JS/CSS files and invoke overide of alert() function:
+
+<b>alert(message, alertclass, container, autofade)</b>
+        message = the alert's message in html
+        alertclass = info, success, failure, or warning (default: "info")
+        container = selector document element to display alert within (default: "body")
+        autofade = true to remove alert after 2 seconds and hide X button (default: false)
+
+Examples:
+ <button id="info-btn" style="background-color: #d9edf7;">info</button>   alert('Default alert.')
+ <button id="success-btn" style="background-color: #dff0d8;">success</button>  	alert('Success!', "success", "body", true)
+ <button id="failure-btn" style="background-color: #f2dede;">failure</button>  	alert('Oops...', "failure")
+ <button id="warning-btn" style="background-color: #fcf8e3;">warning</button>    alert('WARNING', "warning", "#demo")</pre>
+
+<script>
+  //script for this demo
+  $("#info-btn").click(function() {
+    alert('Default alert.')
+  });
+
+  $("#failure-btn").click(function() {
+    alert('Oops...', "failure")
+  });
+
+
+  $("#warning-btn").click(function() {
+    alert('WARNING', "warning", "#demo")
+  });
+
+  $("#success-btn").click(function() {
+    console.log( alert('Success!', "success", null, true) )
+  });
+
+
+
+
+  window.alert = function(message, alertclass, container, autofade) {
+    var alert = $('<div class="alert-' + (alertclass || "info") + '">' +
+      (autofade ? '' : '<span class="alert-close">×</span>') + (message || "") + '</div>');
+
+    container = container || 'body';
+    $(container).css("position", "relative");
+    $($(container + ">.alert-position")[0] ||
+      $("<div class='alert-position'>").prependTo(container)).prepend(alert);
+
+    if (autofade)
+      alert.hide().fadeIn(300).delay(1500).closeAlert()
+    else
+      alert.find('.alert-close').click(function() {
+        $(this).parent().closeAlert()
+      });
+
+     return alert
+  }
+  jQuery.fn.closeAlert = function() {
+    this.animate({
+      "opacity": 0,
+      "margin-top": "-50px",
+      "display": "none"
+    }, "fast").delay(300, function() {
+      this.remove()
+    });
+  }
+
+</script>
+
+<style>
+
+.alert-position {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  overflow: visible;
+}
+.alert-success,.alert-failure,.alert-warning,.alert-info {
+  padding: 15px;
+  margin-bottom: 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 200px;
+  z-index: 1000;
+}
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-failure {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-close {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.alert-close:hover {
+  color: black;
+}
+
+</style>
