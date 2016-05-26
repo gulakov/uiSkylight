@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+
+
+<style>
+
+/* body fonts*/
+
+/* html,body{margin:0;padding:0} */
+body{
+  font-family: Verdana, Georgia, sans-serif;
+}
+
+body.slim{
+  width: 60%;
+  margin: 1% auto;;
+}
+
+/*button with dark on hover*/
+
+button,
+input[type=button] {
+    background: #4285F5;
+    color: #fff;
+    transition: all .3s ease 0s;
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    line-height: 40px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    cursor:pointer;
+    outline: 0;
+}
+button:hover, input[type=button]:hover {
+  box-shadow: inset 0 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+
+/*text input form*/
+
+input[type=text], input[type=password] {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: .0625rem solid #ccc;
+    border-radius: .25rem;
+    outline: 0;
+      display: inline-block;
+}
+
+/*a links lighter*/
+a {
+  color: #0275d8;
+  text-decoration: none;
+}
+a:hover {
+  color: #014c8c;
+  text-decoration: underline;
+}
+
+/*wrap inputs in label*/
+
+label{
+  font-size: .8em;
+  display: inline-block;
+  background: lightgray;
+  padding-left: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 10px 0px;
+  display: block;
+  line-height: 38px;
+  clear: both; /*clearfix height */
+}
+label>input{
+  margin-left: 5px;
+  float: right;
+}
+
+/*v/h center absolute just this element, uses absolute so wrap in relative */
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*v/h center justify for all children of this element*/
+.center-content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  vertical-align: middle;
+  flex-direction: column;
+}
+
+/*make text bigger or smaller*/
+
+.subtext{
+  font-size: .7em;
+}
+.title{
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+
+/*gray curved box container */
+.form-container{
+  border-radius: 20px;
+  padding: 30px;
+
+  background: #efefef;
+}
+
+</style>
+
+</head>
+<body class="slim">
+
+<div class="form-container center">
+
+<span class="title">Login</span>
+
+<label> Username <input type='text' placeholder="Type your name"></label>
+
+<label> Password <input type='password' placeholder="••••••"/></label>
+
+<a href="#" class="subtext">Forgot Password?</a> <br> <br>
+
+<button class="center-content ">Login</button>
+</div>
+
+</body>
+</html>

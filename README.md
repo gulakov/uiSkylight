@@ -22,4 +22,5 @@ uiSkylight gives you modules for each component you want to use, making it simpl
 
 ### tooltips
 
-##icons
+###icons
+
