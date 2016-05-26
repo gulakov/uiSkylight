@@ -1,0 +1,108 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+<div id="modal-file-new" class="modal">
+
+    <div class="modal-header">Title</div>
+
+    Modal body
+    <button id="file-new-modal-submit" type="submit" class="btn btn-primary modal-ok">OK</button>
+
+</div>
+
+
+<style>
+
+/* modal */
+
+
+.modal{
+    display: none;
+    position: fixed;
+    background-color: white;
+    z-index: 10000;\
+    box-shadow: 0px 1px 20px rgba(0,0,0,.2);
+    border-radius: 5px;
+    top: 5px;
+    left: 15%;
+    max-height: 100%;
+    padding: 30px;
+    overflow: auto;
+    height: auto;
+    padding-top: 70px;
+
+}
+
+
+.modal .close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+}
+
+.modal-header{
+    font-size: 140%;
+    border-bottom: 1px solid #e5e5e5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    max-height: 50px;
+    padding: 0px;
+
+}
+
+.modal:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.modal-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: gray;
+    opacity: .7;
+    z-index: 200;
+}
+
+.modal[style*='display: block'] ~ .modal-overlay {
+  display: block;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+
+
+</style>
+
+<script>
+
+  //modal closing
+
+//  $(".modal").css("left", ($("#sidebar").width()+35) +"px")
+
+  $(".modal").each(function(){
+    $(this).prepend('<span class="close">');
+  })
+  $(".modal:last").after('<div class="modal-overlay">')
+  $(".modal-overlay, .close").click(function (e) {
+      $(".modal").hide();
+  })
+
+
+  $(".modal").show()
+</script>
