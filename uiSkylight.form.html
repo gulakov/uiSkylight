@@ -20,27 +20,6 @@ body.slim{
 }
 
 
-/*button with dark on hover*/
-button,
-input[type=button] {
-    background: #4285F5;
-    color: #fff;
-    transition: all .3s ease 0s;
-    font-size: 20px;
-    height: 40px;
-    width: 100px;
-    line-height: 40px;
-    margin: auto;
-    text-align: center;
-    border-radius: 5px;
-    border: 0;
-    cursor:pointer;
-    outline: 0;
-}
-button:hover, input[type=button]:hover {
-  box-shadow: inset 0 0 0 40px rgba(0, 0, 0, 0.2);
-}
-
 
 /*text input form*/
 
@@ -54,7 +33,7 @@ input[type=text], input[type=password] {
     border: .0625rem solid #ccc;
     border-radius: .25rem;
     outline: 0;
-      display: inline-block;
+    display: inline-block;
 }
 
 /*a links lighter*/
@@ -69,10 +48,10 @@ a:hover {
 
 /*wrap inputs in label*/
 
-label{
+label.input-label{
   font-size: .8em;
   display: inline-block;
-  background: lightgray;
+  background: #ccc;
   padding-left: 10px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -81,7 +60,7 @@ label{
   line-height: 38px;
   clear: both; /*clearfix height */
 }
-label>input{
+label.input-label>input{
   margin-left: 5px;
   float: right;
 }
@@ -123,6 +102,14 @@ label>input{
   background: #efefef;
 }
 
+
+.group{
+  display: flex;
+  align-items: baseline;
+}
+
+
+
 </style>
 
 
@@ -134,13 +121,15 @@ label>input{
 
 <span class="title">Login</span>
 
-<label> Username <input type='text' placeholder="Type your name"></label>
+<label class="input-label"> Username <input type='text' placeholder="Type your name"></label>
 
-<label> Password <input type='password' placeholder="••••••"/></label>
+<label class="input-label"> Password <input type='password' placeholder="••••••"/></label>
 
-<a href="#" class="subtext">Forgot Password?</a> <br> <br>
 
-<button class="center-content ">Login</button>
+<div class="group">
+  <a href="#" class="subtext">Forgot Password?</a>
+</div>
+
 </div>
 
 </body>

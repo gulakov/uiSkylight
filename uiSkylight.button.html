@@ -1,0 +1,99 @@
+
+<style>
+/*body example*/
+body{
+  font-family: Verdana;
+  width: 25%;
+  margin: 15% auto;
+}
+
+/*BUTTONS*/
+
+button {
+    background: #fff;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10%;
+    cursor:pointer;
+    margin: 0;
+    outline: 0;
+    transition: all .3s ease 0s;
+    text-align: center;
+}
+
+/*button with dark on hover*/
+button[type=submit], .btn-submit {
+    background: #4285F5;
+    color: #fff;
+    transition: all .3s ease 0s;
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    border-radius: .5rem;
+}
+button:hover {
+  box-shadow: inset 0 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+button.active{
+    background: #4285F5;
+    color: #fff;
+}
+
+button+button, button+.dropdown{ /*remove spacing between buttons*/
+    margin-left: -6px;
+}
+
+
+/*dropdown*/
+.dropdown{
+    display: inline;
+    position: relative;
+}
+.dropdown>button::after{
+  content: " \25bd";
+}
+.dropdown .dropdown-menu{
+  position: absolute;
+  left:0;
+}
+.dropdown:not(:hover) .dropdown-menu{
+  display: none;
+}
+.dropdown-menu button{
+  margin-left: 0;
+}
+
+
+
+
+</style>
+
+
+<button class="active" onclick="classList.toggle('active')">Enable Feature</button>
+
+
+<p></p>
+<button>US</button>
+<button>Europe</button>
+<button>Asia</button>
+
+<div class="dropdown">
+  <button>Other</button>
+  <div class="dropdown-menu">
+    <button>Australia</button>
+    <button>Africa</button>
+  </div>
+</div>
+
+
+<p></p>
+
+
+<button type="submit" class="center-content">Login</button>
+</div>
