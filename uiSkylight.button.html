@@ -1,13 +1,4 @@
-
 <style>
-/*body example*/
-body{
-  font-family: Verdana;
-  width: 25%;
-  margin: 15% auto;
-}
-
-/*BUTTONS*/
 
 button {
     background: #fff;
@@ -27,28 +18,23 @@ button {
 button[type=submit], .btn-submit {
     background: #4285F5;
     color: #fff;
-    transition: all .3s ease 0s;
-    font-size: 20px;
-    height: 40px;
-    width: 100px;
-    padding: 0;
-    margin: auto;
-    text-align: center;
+    font-size: 1.2em;
+    min-height: 40px;
+    min-width: 100px;
     border-radius: .5rem;
 }
 button:hover {
   box-shadow: inset 0 0 0 40px rgba(0, 0, 0, 0.2);
 }
-
+/*toggle button*/
 button.active{
     background: #4285F5;
     color: #fff;
 }
-
-button+button, button+.dropdown{ /*remove spacing between buttons*/
+/*remove spacing between buttons*/
+button+button, button+.dropdown{
     margin-left: -6px;
 }
-
 
 /*dropdown*/
 .dropdown{
@@ -56,11 +42,12 @@ button+button, button+.dropdown{ /*remove spacing between buttons*/
     position: relative;
 }
 .dropdown>button::after{
-  content: " \25bd";
+  content: "\25bd";
 }
-.dropdown .dropdown-menu{
+.dropdown-menu{
   position: absolute;
   left:0;
+  z-index: 1000;
 }
 .dropdown:not(:hover) .dropdown-menu{
   display: none;
@@ -70,6 +57,13 @@ button+button, button+.dropdown{ /*remove spacing between buttons*/
 }
 
 
+
+/*body example*/
+body{
+  font-family: Verdana;
+  width: 25%;
+  margin: 15% auto;
+}
 
 
 </style>
