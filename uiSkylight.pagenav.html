@@ -1,0 +1,43 @@
+<style>
+/*half circle with arrow to prev/next on pages */
+.navMoonPrev, .navMoonNext{
+  background: gray;
+  opacity: .5;
+  position:absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  border-radius: 100%;
+  transition: all ease .5s;
+  cursor: pointer;
+  overflow: hidden;
+
+}
+.navMoonPrev:hover, .navMoonNext:hover{
+  opacity: 1;
+}
+.navMoonPrev:after, .navMoonNext:after {
+    content: '\00203A\002039';
+    color: white;
+    font-size: 100px;
+    line-height: 80px;
+    float: right;
+    width: 100px;
+    text-align: center;
+}
+.navMoonNext{
+  left:100%; 
+}
+
+body{
+  overflow: hidden;
+  margin: 0;
+}
+</style>
+
+<body>
+  <nav class="navMoonPrev"></nav>
+  <nav class="navMoonNext"></nav>
+</body>
